@@ -35,7 +35,7 @@ let c = new Countdown({
 c._run();
 ```
 ### Demo
-Work in progress
+[view Demo](https://matteonossa.it/packages/demo/awesome-countdown)
 
 ## License
 
