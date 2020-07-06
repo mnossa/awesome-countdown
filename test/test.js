@@ -1,5 +1,4 @@
-// browserify test/test.js -o test/bundle.js -> compile and test on browser (http://localhost/dev-js/npm-countdown/test/browser.html OR file:///C:/Projects/JS/npm-countdown/test/browser.html)
-// node test/test.js -> test on nodeJS
+
 
 const Countdown = require("../index");
 const moment = require("moment");
