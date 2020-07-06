@@ -118,7 +118,14 @@ module.exports = {
         }
 
 
-        document.body.appendChild(container);
+        if (typeof options.domId !== 'undefined') {
+            let id = document.getElementById(options.domId);
+            id.appendChild(container);
+        } else {
+            document.body.appendChild(container);
+        }
+
+        
 
 
 

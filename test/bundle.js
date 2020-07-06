@@ -32,12 +32,12 @@ function Countdown(args) {
         showDay: typeof args.showDay !== 'undefined' ? args.showDay : true,
         showHour: typeof args.showHour !== 'undefined' ? args.showHour : true,
         showMinute: typeof args.showMinute !== 'undefined' ? args.showMinute : true,
-        // showSecond: typeof args.showSecond !== 'undefined' ? args.showSecond : true,
         refreshRate: Math.abs(args.refreshRate) || 1000,
         hidden: typeof args.hidden !== 'undefined' ? args.hidden : false,
         claim: typeof args.claim !== 'undefined' ? args.claim : '',
         uniq: new Date().valueOf() + Math.random(),
-        class: args.class || ''
+        class: args.class || '',
+        domId: args.domId || undefined
     }
 
 
@@ -6032,7 +6032,14 @@ module.exports = {
         }
 
 
-        document.body.appendChild(container);
+        if (typeof options.domId !== 'undefined') {
+            let id = document.getElementById(options.domId);
+            id.appendChild(container);
+        } else {
+            document.body.appendChild(container);
+        }
+
+        
 
 
 
@@ -6086,8 +6093,7 @@ module.exports = {
     }
 }
 },{}],5:[function(require,module,exports){
-// browserify test/test.js -o test/bundle.js -> compile and test on browser (http://localhost/dev-js/npm-countdown/test/browser.html OR file:///C:/Projects/JS/npm-countdown/test/browser.html)
-// node test/test.js -> test on nodeJS
+
 
 const Countdown = require("../index");
 const moment = require("moment");
@@ -6128,6 +6134,7 @@ let c = new Countdown({
     },
     end: date,
     claim: `<div class="button" style="${claimCss}" onClick="echo();" >press me</div>`,
+    domId:'demo'
 });
 
 c._run();

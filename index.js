@@ -35,7 +35,8 @@ function Countdown(args) {
         hidden: typeof args.hidden !== 'undefined' ? args.hidden : false,
         claim: typeof args.claim !== 'undefined' ? args.claim : '',
         uniq: new Date().valueOf() + Math.random(),
-        class: args.class || ''
+        class: args.class || '',
+        domId: args.domId || undefined
     }
 
 

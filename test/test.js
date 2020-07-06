@@ -39,6 +39,7 @@ let c = new Countdown({
     },
     end: date,
     claim: `<div class="button" style="${claimCss}" onClick="echo();" >press me</div>`,
+    domId:'demo'
 });
 
 c._run();
