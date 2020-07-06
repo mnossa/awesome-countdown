@@ -15,5 +15,10 @@
     "moment-precise-range-plugin": "^1.3.0"
   },
   "author": "Matteo Nossa",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnossa/awesome-countdown.git"
+  },
+  "homepage": "https://github.com/mnossa/awesome-countdown#readme"
 }
