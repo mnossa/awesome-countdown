@@ -1,0 +1,19 @@
+{
+  "name": "awesome-countdown",
+  "version": "1.0.0",
+  "description": "just an awesome countdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "countdown",
+    "timer"
+  ],
+  "dependencies": {
+    "moment": "^2.27.0",
+    "moment-precise-range-plugin": "^1.3.0"
+  },
+  "author": "Matteo Nossa",
+  "license": "MIT"
+}
