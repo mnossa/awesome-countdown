@@ -1,5 +1,8 @@
 ## Awesome countdown
 
+[![npm version](https://badge.fury.io/js/awesome-countdown.svg)](https://badge.fury.io/js/awesome-countdown)
+[![GitHub version](https://badge.fury.io/gh/mnossa%2Fawesome-countdown.svg)](https://badge.fury.io/gh/mnossa%2Fawesome-countdown)
+
 
 ### Install
 `npm install awesome-countdown`
@@ -60,5 +63,11 @@ domId|dom ID where put countdown in|false|null
 [view Demo](https://matteonossa.it/packages/demo/awesome-countdown)
 
 
-## License
-[MIT License](https://github.com/mnossa/awesome-countdown/blob/master/LICENSE)
+### License
+Code released under [MIT License](https://github.com/mnossa/awesome-countdown/blob/master/LICENSE)
+
+
+### Donate
+![Ethereum](https://commons.wikimedia.org/wiki/File:Ethereum_logo_2014.svg =150x) 0x211d4614993388408090Fe13dbCF1924e2046BC5
+
+![Bitcoin](https://commons.wikimedia.org/wiki/File:Bitcoin_logo.svg =150x) bc1quylvae686vzvc6dmshy3mcz3gfqpheaeee7dsv
