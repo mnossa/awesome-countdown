@@ -68,6 +68,6 @@ Code released under [MIT License](https://github.com/mnossa/awesome-countdown/bl
 
 
 ### Donate
-![Ethereum](https://commons.wikimedia.org/wiki/File:Ethereum_logo_2014.svg =150x) 0x211d4614993388408090Fe13dbCF1924e2046BC5
+_ETH_: 0x211d4614993388408090Fe13dbCF1924e2046BC5
 
-![Bitcoin](https://commons.wikimedia.org/wiki/File:Bitcoin_logo.svg =150x) bc1quylvae686vzvc6dmshy3mcz3gfqpheaeee7dsv
+_BTC_: bc1quylvae686vzvc6dmshy3mcz3gfqpheaeee7dsv
