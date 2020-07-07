@@ -19,7 +19,7 @@ const LABELS = {
     SECONDS: 'seconds',
 }
 
-let uniqueId;
+// let uniqueId;
 
 module.exports = {
     className: function (str) {
@@ -28,7 +28,7 @@ module.exports = {
 
     create: function (options) {
 
-        uniqueId = options.uniq;
+        let uniqueId = options.uniq;
         if (document.getElementById(this.className(CLASSES.CONTAINER) + '__' + uniqueId)) {
             return;
         }
@@ -122,8 +122,8 @@ module.exports = {
 
     },
 
-    update: function (value) {
-
+    update: function (value, uniqueId) {
+        // console.log(uniqueId);
         if (document.getElementById(this.className(CLASSES.YEAR) + '__' + uniqueId)) {
             document.getElementById(this.className(CLASSES.YEAR) + '__' + uniqueId).getElementsByClassName('unit')[0].innerHTML = value.years;
         }

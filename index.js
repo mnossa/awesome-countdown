@@ -28,7 +28,8 @@ function AwesomeCountdown(args) {
         },
         set: function (target, prop, value) {
             if (prop === 'data' && !_self.options.hidden && typeof document !== 'undefined') {
-                dom.update(value);
+                // console.log(_self.options);
+                dom.update(value, _self.options.uniq);
             }
             return Reflect.set(target, prop, value);
         }
@@ -87,7 +88,7 @@ function AwesomeCountdown(args) {
     }
 
     this._run = function () {
-        var { start, end, callback, refreshRate, hidden } = _self.options;
+        var {  end,  refreshRate, hidden } = _self.options;
 
         if (end === null) {
             throw 'end parameter is required';
