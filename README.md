@@ -1,7 +1,7 @@
 ## Awesome countdown
 
-[![npm version](https://badge.fury.io/js/awesome-countdown.svg)](https://badge.fury.io/js/awesome-countdown)
-[![GitHub version](https://badge.fury.io/gh/mnossa%2Fawesome-countdown.svg)](https://badge.fury.io/gh/mnossa%2Fawesome-countdown)
+<!-- [![npm version](https://badge.fury.io/js/awesome-countdown.svg)](https://badge.fury.io/js/awesome-countdown) -->
+<!-- [![GitHub version](https://badge.fury.io/gh/mnossa%2Fawesome-countdown.svg)](https://badge.fury.io/gh/mnossa%2Fawesome-countdown) -->
 
 
 ### Install
