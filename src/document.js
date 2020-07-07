@@ -1,5 +1,3 @@
-// const constants = require("./constants");
-
 const CLASSES = {
     CONTAINER: 'container',
     TIMER_CONTENT: 'timer_content',
@@ -37,15 +35,12 @@ module.exports = {
 
         let container = this.domdom('div', {
             'id': [this.className(CLASSES.CONTAINER) + '__' + uniqueId],
-            'class': [options.class !== '' ? this.className(options.class) : this.className(CLASSES.CONTAINER)],
+            'class': [options.class !== null ? this.className(options.class) : this.className(CLASSES.CONTAINER)],
         })
 
         let timer_content = this.domdom('div', {
             'class': [this.className(CLASSES.TIMER_CONTENT)],
         })
-
-
-
 
 
         if (options.showYear) {
@@ -109,7 +104,7 @@ module.exports = {
 
         container.appendChild(timer_content);
 
-        if (options.claim) {
+        if (options.claim !== null) {
             let claim_content = this.domdom('div', {
                 'class': [this.className(CLASSES.CLAIM_CONTENT)],
                 'html': '' || `<span class="label">${options.claim}</span>`
@@ -118,16 +113,12 @@ module.exports = {
         }
 
 
-        if (typeof options.domId !== 'undefined') {
+        if (options.domId !== null) {
             let id = document.getElementById(options.domId);
             id.appendChild(container);
         } else {
             document.body.appendChild(container);
         }
-
-        
-
-
 
     },
 
