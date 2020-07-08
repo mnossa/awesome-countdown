@@ -1,3 +1,5 @@
+const Language = require("./lang");
+
 const CLASSES = {
     CONTAINER: 'container',
     TIMER_CONTENT: 'timer_content',
@@ -10,16 +12,7 @@ const CLASSES = {
     CLAIM_CONTENT: 'claim_content'
 }
 
-const LABELS = {
-    YEARS: 'years',
-    MONTHS: 'months',
-    DAYS: 'days',
-    HOURS: 'hours',
-    MINUTES: 'minutes',
-    SECONDS: 'seconds',
-}
-
-// let uniqueId;
+require("./lang/index");
 
 module.exports = {
     className: function (str) {
@@ -27,6 +20,8 @@ module.exports = {
     },
 
     create: function (options) {
+
+        let lang = Language(options.lang);
 
         let uniqueId = options.uniq;
         if (document.getElementById(this.className(CLASSES.CONTAINER) + '__' + uniqueId)) {
@@ -48,7 +43,7 @@ module.exports = {
                 this.domdom('span', {
                     'class': [this.className(CLASSES.YEAR), 'box'],
                     'id': [this.className(CLASSES.YEAR) + '__' + uniqueId],
-                    'html': `<span class="unit"></span><span class="label">${LABELS.YEARS}</span>`
+                    'html': `<span class="unit"></span><span class="label">${lang.LABELS.YEARS}</span>`
                 })
             );
         }
@@ -58,7 +53,7 @@ module.exports = {
                 this.domdom('span', {
                     'class': [this.className(CLASSES.MONTH), 'box'],
                     'id': [this.className(CLASSES.MONTH) + '__' + uniqueId],
-                    'html': `<span class="unit"></span><span class="label">${LABELS.MONTHS}</span>`
+                    'html': `<span class="unit"></span><span class="label">${lang.LABELS.MONTHS}</span>`
                 })
             );
         }
@@ -68,7 +63,7 @@ module.exports = {
                 this.domdom('span', {
                     'class': [this.className(CLASSES.DAY), 'box'],
                     'id': [this.className(CLASSES.DAY) + '__' + uniqueId],
-                    'html': `<span class="unit"></span><span class="label">${LABELS.DAYS}</span>`
+                    'html': `<span class="unit"></span><span class="label">${lang.LABELS.DAYS}</span>`
                 })
             );
         }
@@ -78,7 +73,7 @@ module.exports = {
                 this.domdom('span', {
                     'class': [this.className(CLASSES.HOUR), 'box'],
                     'id': [this.className(CLASSES.HOUR) + '__' + uniqueId],
-                    'html': `<span class="unit"></span><span class="label">${LABELS.HOURS}</span>`
+                    'html': `<span class="unit"></span><span class="label">${lang.LABELS.HOURS}</span>`
                 })
             );
         }
@@ -88,7 +83,7 @@ module.exports = {
                 this.domdom('span', {
                     'class': [this.className(CLASSES.MINUTE), 'box'],
                     'id': [this.className(CLASSES.MINUTE) + '__' + uniqueId],
-                    'html': `<span class="unit"></span><span class="label">${LABELS.MINUTES}</span>`
+                    'html': `<span class="unit"></span><span class="label">${lang.LABELS.MINUTES}</span>`
                 })
             );
         }
@@ -97,7 +92,7 @@ module.exports = {
             this.domdom('span', {
                 'class': [this.className(CLASSES.SECOND), 'box'],
                 'id': [this.className(CLASSES.SECOND) + '__' + uniqueId],
-                'html': `<span class="unit"></span><span class="label">${LABELS.SECONDS}</span>`
+                'html': `<span class="unit"></span><span class="label">${lang.LABELS.SECONDS}</span>`
             })
         );
 

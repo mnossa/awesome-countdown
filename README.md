@@ -42,21 +42,30 @@ c._run();
 
 
 ### Parameters
-Name | Description | Required | Default
------|-------------|----------|--------
-callback|a callback function called at the end of countdown|false|null
-start|time to start the countdown|false|moment()
-end|time to end the countdown|true|null
-showYear|show year value|false|true
-showMonth|show month value|false|true
-showDay|show day value|false|true
-showHour|sho howr value|false|true
-showMinute|sho minute value|false|true
-refreshRate|countdown refresh rate|false|1000 ms
-hidden|hide the countdown|false|false
-claim|the text displayed under the countdown|false|null
-class|a custom class for the countdown|false|null
-domId|dom ID where put countdown in|false|null
+Name | Description | Required | Type | Default
+-----|-------------|----------|------|--------
+callback|a callback function called at the end of countdown|false|function|null
+start|time to start the countdown|false|string YYYY-MM-DD HH:mm:ss or moment|moment()
+end|time to end the countdown|true|string YYYY-MM-DD HH:mm:ss or moment|null
+showYear|show year value|false|boolean|true
+showMonth|show month value|false|boolean|true
+showDay|show day value|false|boolean|true
+showHour|sho howr value|false|boolean|true
+showMinute|sho minute value|false|boolean|true
+refreshRate|countdown refresh rate|false|milliseconds|1000 ms
+hidden|hide the countdown|false|boolean|false
+claim|the text displayed under the countdown|false|string|null
+class|a custom class for the countdown|false|string|null
+domId|dom ID where put countdown in|false|string|null
+lang|language for the labels|false|string or object|en
+
+
+### Methods
+Name | Description
+-----|------------
+_run|start the countdown
+_reset|reset the countdown
+_stop|stop the countdown
 
 
 ### Demo

@@ -28,7 +28,6 @@ function AwesomeCountdown(args) {
         },
         set: function (target, prop, value) {
             if (prop === 'data' && !_self.options.hidden && typeof document !== 'undefined') {
-                // console.log(_self.options);
                 dom.update(value, _self.options.uniq);
             }
             return Reflect.set(target, prop, value);
@@ -49,9 +48,9 @@ function AwesomeCountdown(args) {
         claim: typeof args.claim !== 'undefined' ? args.claim : null,
         uniq: new Date().valueOf() + Math.random(),
         class: typeof args.class !== 'undefined' ? args.class : null,
-        domId: typeof args.domId  !== 'undefined' ? args.domId : null
+        domId: typeof args.domId  !== 'undefined' ? args.domId : null,
+        lang: typeof args.lang !== 'undefined' ? args.lang : 'en'
     }
-
 
     var _count = function() {
         var { start, end, callback } = _self.options;

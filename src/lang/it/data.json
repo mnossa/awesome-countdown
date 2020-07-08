@@ -1,0 +1,11 @@
+{
+    "LABELS" : {
+        "YEARS": "anni",
+        "MONTHS": "mesi",
+        "DAYS": "giorni",
+        "HOURS": "ore",
+        "MINUTES": "minuti",
+        "SECONDS": "secondi"
+    }
+    
+}
