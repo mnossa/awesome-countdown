@@ -5,7 +5,6 @@ const DE = require("./de/data.json");
 const FR = require("./fr/data.json");
 
 function Language(arg) {
-    // console.log(typeof arg);
     if (typeof arg === 'object') {
         return arg;
     }

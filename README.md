@@ -69,14 +69,12 @@ _stop|stop the countdown
 
 
 ### Demo
-[view Demo](https://matteonossa.it/packages/demo/awesome-countdown)
+[view Demo](https://matteonossa.it/packages/awesome-countdown)
 
 
 ### License
 Code released under [MIT License](https://github.com/mnossa/awesome-countdown/blob/master/LICENSE)
 
 
-### Donate
-_ETH_: 0x211d4614993388408090Fe13dbCF1924e2046BC5
-
-_BTC_: bc1quylvae686vzvc6dmshy3mcz3gfqpheaeee7dsv
+### Support me
+Algorand: M5MTPYJXVW25PAWDAZTLGUN6QMJBMZ44T2675LHUK3QZFN4ZREXOFCUAGI

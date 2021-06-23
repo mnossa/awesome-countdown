@@ -19,28 +19,31 @@ module.exports = {
         return `countdown__${str}`;
     },
 
-    create: function (options) {
+    // Create dom document that contain counter 
+    _init: function (options) {
 
         let lang = Language(options.lang);
 
         let uniqueId = options.uniq;
+
+        // Prevent multiple instances whith same id
         if (document.getElementById(this.className(CLASSES.CONTAINER) + '__' + uniqueId)) {
             return;
         }
 
-        let container = this.domdom('div', {
+        let container = this._createDOMElement('div', {
             'id': [this.className(CLASSES.CONTAINER) + '__' + uniqueId],
             'class': [options.class !== null ? this.className(options.class) : this.className(CLASSES.CONTAINER)],
         })
 
-        let timer_content = this.domdom('div', {
+        let timer_content = this._createDOMElement('div', {
             'class': [this.className(CLASSES.TIMER_CONTENT)],
         })
 
 
         if (options.showYear) {
             timer_content.appendChild(
-                this.domdom('span', {
+                this._createDOMElement('span', {
                     'class': [this.className(CLASSES.YEAR), 'box'],
                     'id': [this.className(CLASSES.YEAR) + '__' + uniqueId],
                     'html': `<span class="unit"></span><span class="label">${lang.LABELS.YEARS}</span>`
@@ -50,7 +53,7 @@ module.exports = {
 
         if (options.showMonth) {
             timer_content.appendChild(
-                this.domdom('span', {
+                this._createDOMElement('span', {
                     'class': [this.className(CLASSES.MONTH), 'box'],
                     'id': [this.className(CLASSES.MONTH) + '__' + uniqueId],
                     'html': `<span class="unit"></span><span class="label">${lang.LABELS.MONTHS}</span>`
@@ -60,7 +63,7 @@ module.exports = {
 
         if (options.showDay) {
             timer_content.appendChild(
-                this.domdom('span', {
+                this._createDOMElement('span', {
                     'class': [this.className(CLASSES.DAY), 'box'],
                     'id': [this.className(CLASSES.DAY) + '__' + uniqueId],
                     'html': `<span class="unit"></span><span class="label">${lang.LABELS.DAYS}</span>`
@@ -70,7 +73,7 @@ module.exports = {
 
         if (options.showHour) {
             timer_content.appendChild(
-                this.domdom('span', {
+                this._createDOMElement('span', {
                     'class': [this.className(CLASSES.HOUR), 'box'],
                     'id': [this.className(CLASSES.HOUR) + '__' + uniqueId],
                     'html': `<span class="unit"></span><span class="label">${lang.LABELS.HOURS}</span>`
@@ -80,7 +83,7 @@ module.exports = {
 
         if (options.showMinute) {
             timer_content.appendChild(
-                this.domdom('span', {
+                this._createDOMElement('span', {
                     'class': [this.className(CLASSES.MINUTE), 'box'],
                     'id': [this.className(CLASSES.MINUTE) + '__' + uniqueId],
                     'html': `<span class="unit"></span><span class="label">${lang.LABELS.MINUTES}</span>`
@@ -89,7 +92,7 @@ module.exports = {
         }
 
         timer_content.appendChild(
-            this.domdom('span', {
+            this._createDOMElement('span', {
                 'class': [this.className(CLASSES.SECOND), 'box'],
                 'id': [this.className(CLASSES.SECOND) + '__' + uniqueId],
                 'html': `<span class="unit"></span><span class="label">${lang.LABELS.SECONDS}</span>`
@@ -100,7 +103,7 @@ module.exports = {
         container.appendChild(timer_content);
 
         if (options.claim !== null) {
-            let claim_content = this.domdom('div', {
+            let claim_content = this._createDOMElement('div', {
                 'class': [this.className(CLASSES.CLAIM_CONTENT)],
                 'html': '' || `<span class="label">${options.claim}</span>`
             })
@@ -117,8 +120,8 @@ module.exports = {
 
     },
 
-    update: function (value, uniqueId) {
-        // console.log(uniqueId);
+    _refresh: function (value, uniqueId) {
+
         if (document.getElementById(this.className(CLASSES.YEAR) + '__' + uniqueId)) {
             document.getElementById(this.className(CLASSES.YEAR) + '__' + uniqueId).getElementsByClassName('unit')[0].innerHTML = value.years;
         }
@@ -147,7 +150,7 @@ module.exports = {
             document.getElementById(this.className(CLASSES.SECOND) + '__' + uniqueId).getElementsByClassName('unit')[0].innerHTML = value.seconds;
         }
     },
-    domdom: function (type, args) {
+    _createDOMElement: function (type, args) {
         let s = document.createElement(type);
 
         if (args.class) {

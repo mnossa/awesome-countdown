@@ -1,25 +1,26 @@
-// 'use strict';
-
 /**
- * Copyright (c) 2020
+ * Copyright (c) 2021, Matteo Nossa
  *
  *
+ * @package AwesomeCountdown
  * @summary AwesomeCountdown NPM Package
- * @author Matteo Nossa <matteo.nossa@gmail.com>
+ * @author Matteo Nossa <matteo@matteonossa.it>
+ * @example https://matteonossa.it/packages/awesome-countdown
  *
  * Created at     : 2020-07-06 
- * Updated at     : 2020-07-07 
+ * Updated at     : 2021-06-23  
+ * 
  */
 
 
 const moment = require("moment");
-const dom = require('./src/document');
+const dom_document = require('./src/document');
 require('moment-precise-range-plugin');
 
 
 function AwesomeCountdown(args) {
 
-    var _timer;
+    var _interval;
     let _self = this;
 
     this.output = new Proxy({ data: null }, {
@@ -28,7 +29,7 @@ function AwesomeCountdown(args) {
         },
         set: function (target, prop, value) {
             if (prop === 'data' && !_self.options.hidden && typeof document !== 'undefined') {
-                dom.update(value, _self.options.uniq);
+                dom_document._refresh(value, _self.options.uniq);
             }
             return Reflect.set(target, prop, value);
         }
@@ -78,7 +79,7 @@ function AwesomeCountdown(args) {
             _self.output.data =  r;
 
             if (moment().isSameOrAfter(end)) {
-                clearInterval(_timer);
+                clearInterval(_interval);
                 if (typeof callback === "function") {
                     callback();
                 }
@@ -94,22 +95,22 @@ function AwesomeCountdown(args) {
         }
 
         if (!hidden && typeof document !== 'undefined') {
-            dom.create(_self.options);
+            dom_document._init(_self.options);
             _count();
         }
 
-        _timer = setInterval(function () {
+        _interval = setInterval(function () {
             _count();
         }, refreshRate);
     }
 
     this._reset = function () {
-        clearInterval(_timer);
+        clearInterval(_interval);
         AwesomeCountdown.call(this, _self.options);
     }
 
     this._stop = function () {
-        clearInterval(_timer);
+        clearInterval(_interval);
     }
 
 }
