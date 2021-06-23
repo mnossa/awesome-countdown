@@ -59,6 +59,8 @@
         font-weight: 400;
         color: #4379f7;
         text-decoration: none;
+        cursor: pointer; 
+        font-size: 1rem;
     }
 
 

@@ -10,31 +10,28 @@
 
 ### Usage
 ```shell
-const AwesomeCountdown = require('awesome-countdown');
-
-let date = "2099-12-31 23:59:59"; // or moment date
-
-
-let claimCss = `
-    cursor: pointer;
-    border-radius: 25px;
-    background: #000;
-    color: #fff;
-    display: inline-block;
-    padding: 2px 30px;
-`;
-
-let claimAction = `
-    alert('countdown 2');
-`;
+const AwesomeCountdown = require("../index");
+const moment = require("moment");
+const END_DATE = moment().add(1, 'year').add(9, 'week');
 
 let c = new AwesomeCountdown({
     callback: function () {
-        console.log('callback');
+        console.log('AwesomeCountdown callback');
     },
-    end: date,
-    claim: `<div class="button" style="${claimCss}" onClick="${claimAction}" >press me</div>`,
-    domId:'demo'
+    end: END_DATE,
+    claim: `<div class="button" onClick="echo();" >timer is set to ${END_DATE}</div>`,
+    domId: 'demo',
+    lang: {
+        "LABELS": {
+            "YEARS": "years",
+            "MONTHS": "months",
+            "DAYS": "days",
+            "HOURS": "hours",
+            "MINUTES": "minutes",
+            "SECONDS": "seconds"
+        }
+
+    }
 });
 
 c._run();
