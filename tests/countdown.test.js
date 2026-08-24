@@ -34,6 +34,17 @@ test('does not begin counting before the configured start date', () => {
     countdown.stop();
 });
 
+test('exposes only documented remaining-time fields', () => {
+    const countdown = new AwesomeCountdown({
+        hidden: true,
+        end: new Date(Date.now() + 65000)
+    });
+
+    assert.deepEqual(Object.keys(countdown.getRemaining()).sort(), [
+        'days', 'hours', 'minutes', 'months', 'seconds', 'years'
+    ]);
+});
+
 test('exposes public lifecycle aliases and validates dates', () => {
     const countdown = new AwesomeCountdown({ hidden: true });
     assert.equal(countdown.run, countdown._run);

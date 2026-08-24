@@ -93,7 +93,14 @@ function AwesomeCountdown(args) {
             r.minutes = 0;
         }
 
-        return r;
+        return {
+            years: r.years,
+            months: r.months,
+            days: r.days,
+            hours: r.hours,
+            minutes: r.minutes,
+            seconds: r.seconds
+        };
     }
 
     var _count = function() {
