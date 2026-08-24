@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Awesome Countdown — Demo</title>
+  <link rel="stylesheet" href="../src/style.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh; margin: 0; padding: 3rem 1rem;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #e2e8f0;
+      background: #090b18;
+    }
+    main { width: min(100%, 980px); margin: auto; }
+    .eyebrow { color: #c4b5fd; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .75rem; }
+    h1 { margin: .6rem 0; font-size: clamp(2.4rem, 8vw, 5rem); letter-spacing: -.06em; }
+    .intro { max-width: 45rem; color: #94a3b8; line-height: 1.6; }
+    .countdown__container { --countdown-accent: #f97316; --countdown-accent-dark: #9a3412; }
+    #status { min-height: 1.5em; text-align: center; color: #fdba74; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Product launch</p>
+    <h1>Every second counts.</h1>
+    <p class="intro">A responsive, accessible-by-default countdown. This demo resets itself after completion so you can see the callback in action.</p>
+    <div id="countdown"></div>
+    <p id="status" aria-live="polite"></p>
+  </main>
+  <script src="./awesome-countdown.js"></script>
+  <script>
+    const Countdown = AwesomeCountdown.AwesomeCountdown || AwesomeCountdown;
+    const status = document.getElementById('status');
+    let timer;
+
+    function startDemo() {
+      timer = new Countdown({
+        end: new Date(Date.now() + 10 * 60 * 1000),
+        domId: 'countdown',
+        showYear: false,
+        showMonth: false,
+        showDay: false,
+        claim: 'The next chapter starts soon',
+        callback(countdown) {
+          status.textContent = 'The countdown has ended — starting again.';
+          setTimeout(() => {
+            document.getElementById('countdown').replaceChildren();
+            startDemo();
+          }, 1500);
+        }
+      });
+      timer.run();
+    }
+
+    startDemo();
+  </script>
+</body>
+</html>

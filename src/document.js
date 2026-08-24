@@ -33,7 +33,10 @@ module.exports = {
 
         let container = this._createDOMElement('div', {
             'id': [this.className(CLASSES.CONTAINER) + '__' + uniqueId],
-            'class': [options.class !== null ? this.className(options.class) : this.className(CLASSES.CONTAINER)],
+            'class': [
+                this.className(CLASSES.CONTAINER),
+                options.class !== null ? this.className(options.class) : null
+            ].filter(Boolean),
         })
 
         let timer_content = this._createDOMElement('div', {
@@ -113,6 +116,9 @@ module.exports = {
 
         if (options.domId !== null) {
             let id = document.getElementById(options.domId);
+            if (!id) {
+                throw new Error(`Unable to find countdown mount element: #${options.domId}`);
+            }
             id.appendChild(container);
         } else {
             document.body.appendChild(container);

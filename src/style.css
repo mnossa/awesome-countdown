@@ -1,74 +1,74 @@
-    .countdown__container {
-        display: block;
-        padding: 30px 60px;
-        box-shadow: 2px 2px 2px 0 rgb(0 0 0 / 15%);
-        background: rgb(253 253 253);
-        margin: 40px auto;
-        width: fit-content;
-        text-align: center;
+.countdown__container {
+    --countdown-accent: #7c3aed;
+    --countdown-accent-dark: #4c1d95;
+    --countdown-surface: #ffffff;
+    box-sizing: border-box;
+    display: block;
+    width: min(100%, 760px);
+    margin: 2rem auto;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    overflow: hidden;
+    color: #f8fafc;
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 0%, rgb(167 139 250 / 35%), transparent 32%),
+        linear-gradient(135deg, #111827, var(--countdown-accent-dark));
+    border: 1px solid rgb(255 255 255 / 16%);
+    border-radius: 1.5rem;
+    box-shadow: 0 24px 60px rgb(30 27 75 / 28%);
+}
+
+.countdown__container .countdown__timer_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
+    gap: .75rem;
+}
+
+.countdown__container .countdown__timer_content .box {
+    display: grid;
+    gap: .35rem;
+    min-width: 0;
+    padding: 1rem .5rem;
+    background: rgb(255 255 255 / 10%);
+    border: 1px solid rgb(255 255 255 / 14%);
+    border-radius: .9rem;
+    backdrop-filter: blur(8px);
+}
+
+.countdown__container .countdown__timer_content .box .unit {
+    display: block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: clamp(1.75rem, 5vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.08em;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown__container .countdown__timer_content .countdown__second.box {
+    background: var(--countdown-accent);
+    border-color: transparent;
+}
+
+.countdown__container .countdown__timer_content .box .label {
+    color: rgb(255 255 255 / 72%);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.countdown__container .countdown__claim_content .label {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .countdown__container .countdown__timer_content {
+        grid-template-columns: repeat(3, 1fr);
     }
-
-    .countdown__container .countdown__timer_content .box {
-        display: inline-block;
-        min-width: 110px;
-        text-align: center;
-        padding: 6px;
-        position: relative;
-    }
-
-    .countdown__container .countdown__timer_content .box:after {
-        content: ':';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 0;
-        line-height: 80px;
-        font-size: 22px;
-    }
-
-    .countdown__container .countdown__timer_content .box:last-child:after {
-        display: none;
-    }
-
-    .countdown__container .countdown__timer_content .box .unit {
-        display: block;
-        font-weight: bold;
-        font-size: 42px;
-        font-family: fantasy;
-        color: #4379f7;
-    }
-
-    .countdown__container .countdown__timer_content .countdown__second.box .unit {color: #dc3545;}
-
-    .countdown__container .countdown__timer_content .box .label {
-        font-size: 12px;
-    }
-
-    .countdown__container .countdown__claim_content .label {
-        display: block;
-        font-weight: bold;
-        font-size: 32px;
-        font-family: serif;
-        text-align: center;
-        margin-top: 40px;
-        text-transform: uppercase;
-    }
-
-    .button {
-        font-weight: 400;
-        color: #4379f7;
-        text-decoration: none;
-        cursor: pointer; 
-        font-size: 1rem;
-    }
-
-
-    h3 {
-        border-bottom: 1px solid #c7c7c7;
-        padding-bottom: 6px;
-    }
-
-    h2 {
-        font-size: 1rem;
-    }
+}
