@@ -41,7 +41,7 @@ function AwesomeCountdown(args) {
         callback: typeof args.callback === 'function' ? args.callback : null,
         onTick: typeof args.onTick === 'function' ? args.onTick : null,
         start: typeof args.start !== 'undefined' ? moment(args.start) : moment(),
-        end: typeof args.end !== 'undefined' ? moment(args.end) : null,
+        end: typeof args.end !== 'undefined' && args.end !== null ? moment(args.end) : null,
         showYear: typeof args.showYear !== 'undefined' ? args.showYear : true,
         showMonth: typeof args.showMonth !== 'undefined' ? args.showMonth : true,
         showDay: typeof args.showDay !== 'undefined' ? args.showDay : true,
